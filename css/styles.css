@@ -1,0 +1,114 @@
+/*
+  Color de fondo: hsl(185, 75%, 39%)
+  Color del texto gris: hsl(227, 10%, 46%)
+ */
+body{
+background-color:hsl(185, 75%, 39%);
+font-family: sans-serif;
+font-size: 1.3rem;
+overflow: hidden;
+/* le damos un overflow hidden para que no nos cree un scroll horizontal ni vertical */
+}
+
+/* vamos a posicionar los círculos */
+.bg-image{
+    position:absolute;
+}
+
+.bg-image--top{
+    top:-650px;
+    left:-300px;
+}
+.bg-image--bottom{
+    bottom: -700px;
+    right: -300px;
+}
+/* ahora vamos a posicionarla tarjeta, el contenido de la tajeta está por debajo de los círculos, por lo que posicionándola con position:relative, ya se nos coloca por encima, luego la posicionamos en el lienzo y le ajustamos su tamaño*/
+.card{
+    position: relative;
+    top: 12vh;
+    width: 400px;
+    height: 450px;
+     margin-left: auto; 
+     margin-right: auto;
+     /* con los márgenes en auto para centrar en el horizontal */
+     background-color: aliceblue;
+     border-radius: 20px;
+     /* Esto para darle el borde redondeado a cada una de las esquinas. El patrón no coge el borde redondeado, lo solucionamos con overflow: hidden */
+    overflow: hidden;
+} 
+
+.card__header{
+    position: relative;
+    height: 120px;
+    text-align:center;
+}
+
+/* vamos a darle estilo al patrón, le damos position absolute, luego lo llevamos al top y al left 0, y fianlemte un ancho del 100% para que ocupe todo */
+.card__header-image{
+    position: absolute;
+    top: 0;
+    left:0;
+    width:100%;
+}
+/* Ahora colocamos la foto que se nos había desaparecido -estaba por debajo de todo-, la posicionanos con position: absolute  y demás, le damos un border radius del 50% para que sea un círculo */
+.card__header-profile{
+    position:absolute;
+    top:90px;
+    left:150px;
+    border-radius: 50%;
+    /* aqui le agregamos el marco-borde- que tiene la foto */
+    border: 5px solid #fff;
+/* Se crea un halo azulado alrededor de la foto, lo eliminamos dándole un bbg-color: blanco */
+    background-color: #fff;
+}
+/* Ahora vamos a colocar los textos segun su respectiva clase */
+
+.card__body{
+    position: absolute;
+    top:200px;
+    width:100%;
+    /* cuando se usa position absolute, hay que darle width 100% porque pierde sus dimensiones */
+    height:100px;
+    text-align: center;
+    /* vamos a dibujar la línea que separa los datos de las estadísticas */
+    border-bottom: 2px solid  rgb(0 0 0 / 0.1);
+    /* éste es un color negro (0 0 0 ) al 1% (/ 0.1) */
+}
+/* vamos a colocar aquí los estilos de los textos, ésto por seguir el orden en que aparecen en el HTML */
+/* Le hemos quitado el margen por defecto y le hemos añadido un poco de margen inferior */
+.card__text{
+    margin:0;
+    margin-bottom: 0.5em;
+}
+
+/* vamos a darle el color mas claro a algunas de los textos */
+
+.card__text--light{
+    color:hsl(227, 10%, 46%);
+}
+
+/* ahora posicionamos el footer */
+
+.card__footer{
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Se nos ha quedado todo uno debajo del otro, esto es porque son elememtos en bloque, vamos a colocarlos uno al lado del otro, con display inline-block,  */
+
+.card__stats{
+    display: inline-block;
+    margin:0 0.5em;
+    width:100px;
+    text-align: center;
+}
+/* vamos a darle tamaño a los números */
+
+.card__number {
+   margin-bottom: .5em;
+   font-size: 1.8rem; 
+
+}
